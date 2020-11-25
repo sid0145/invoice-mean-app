@@ -1,0 +1,10 @@
+mat-from-field {
+  width: 100%;
+}
+input {
+  width: 100%;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+}

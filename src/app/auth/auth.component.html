@@ -1,0 +1,70 @@
+<div class="limiter">
+  <div class="container-login">
+    <mat-card>
+      <mat-card-title> {{ title }} </mat-card-title>
+      <mat-card-content>
+        <form
+          class="form-container"
+          [formGroup]="authForm"
+          novalidate
+          (ngSubmit)="onSubmit()"
+        >
+          <!-- email field -->
+          <mat-form-field color="accent">
+            <input matInput placeholder="email" formControlName="email" />
+            <mat-error
+              *ngIf="
+                authForm.controls.email.invalid &&
+                authForm.controls.email.touched
+              "
+            >
+              Email filed is required!
+            </mat-error>
+          </mat-form-field>
+          <!-- password field -->
+          <mat-form-field color="accent">
+            <input
+              matInput
+              placeholder="password"
+              formControlName="password"
+              type="password"
+            />
+            <mat-error
+              *ngIf="
+                authForm.controls.password.invalid &&
+                authForm.controls.password.touched
+              "
+            >
+              password is required!
+            </mat-error>
+          </mat-form-field>
+          <div>
+            <button
+              mat-raised-button
+              [disabled]="!authForm.valid"
+              type="submit"
+              color="accent"
+            >
+              {{ title }}
+            </button>
+            <!-- <a mat-button href="http://localhost:3000/api/auth/google">
+              Google
+            </a> -->
+          </div>
+        </form>
+      </mat-card-content>
+      <div class="alternative" *ngIf="title === 'Login'">
+        <p>Do'nt have an account?</p>
+        <button mat-raised-button color="accent" [routerLink]="['/signup']">
+          SignUp
+        </button>
+      </div>
+      <div class="alternative" *ngIf="title === 'SignUp'">
+        <p>Have an account?</p>
+        <button mat-raised-button color="accent" [routerLink]="['/login']">
+          Login
+        </button>
+      </div>
+    </mat-card>
+  </div>
+</div>
