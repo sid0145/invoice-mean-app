@@ -1,0 +1,19 @@
+.mat-card {
+  position: absolute;
+  width: 350px;
+  height: 420px;
+  z-index: 10;
+  top: 30%;
+  left: 40%;
+  margin: -100px 0 0 -150px;
+  /* background: red; */
+}
+table {
+  border-spacing: 20px;
+}
+td:nth-of-type(2) {
+  padding-right: 20px;
+}
+.column-title {
+  font-weight: bold;
+}

@@ -10,6 +10,8 @@ import { SideNavComponent } from "./components/side-nav/side-nav.component";
 import { ToolBarComponent } from "./components/tool-bar/tool-bar.component";
 import { InvoicesModule } from "../invoices/invoices.module";
 import { ClientsModule } from "../clients/clients.module";
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { HttpInterceptorService } from "../core/services/http-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -24,6 +26,13 @@ import { ClientsModule } from "../clients/clients.module";
     AppMaterialModule,
     InvoicesModule,
     ClientsModule,
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true,
+    },
   ],
 })
 export class DashboardModule {}

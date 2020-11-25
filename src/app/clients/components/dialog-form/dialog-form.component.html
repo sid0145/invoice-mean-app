@@ -1,0 +1,53 @@
+<div mat-dialog-content>
+  <form class="form-container" [formGroup]="clientForm">
+    <!-- firstname -->
+    <mat-form-field color="accent">
+      <input matInput formControlName="firstName" placeholder="First Name" />
+      <mat-error
+        *ngIf="
+          clientForm.controls.firstName.invalid &&
+          clientForm.controls.firstName.touched
+        "
+      >
+        first name is required</mat-error
+      >
+    </mat-form-field>
+
+    <!-- lastname -->
+    <mat-form-field color="accent">
+      <input matInput formControlName="lastName" placeholder="Last Name" />
+      <mat-error
+        *ngIf="
+          clientForm.controls.lastName.invalid &&
+          clientForm.controls.lastName.touched
+        "
+      >
+        lastname is required</mat-error
+      >
+    </mat-form-field>
+
+    <!-- email -->
+    <mat-form-field color="accent">
+      <input matInput formControlName="email" placeholder="Email" />
+      <mat-error
+        *ngIf="
+          clientForm.controls.email.invalid && clientForm.controls.email.touched
+        "
+      >
+        email is required</mat-error
+      >
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button
+    mat-raised-button
+    [disabled]="!clientForm.valid"
+    color="accent"
+    [mat-dialog-close]="clientForm.value"
+    cdkFocusInitial
+  >
+    Save
+  </button>
+  <button mat-button (click)="onNoClick()">cancel</button>
+</div>
